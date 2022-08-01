@@ -5,8 +5,14 @@ AdminWidget::AdminWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AdminWidget){
     ui->setupUi(this);
-    m_pModel = new QSqlTableModel(this);
+
     connection();
+    m_pModel = new QSqlTableModel(this);
+    m_pModel->setTable("t_user");
+    m_pModel->select();
+
+    ui->user_tableView->setModel(m_pModel);
+    m_pModel->select();
 }
 
 void AdminWidget::connection(){
