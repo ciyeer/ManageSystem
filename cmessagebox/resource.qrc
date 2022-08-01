@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="MsgBox.css">resource/css/msgbox.css</file>
+        <file alias="close_hover">resource/image/close/close_hover.svg</file>
+        <file alias="close_normal">resource/image/close/close_normal.svg</file>
+        <file alias="close_pressed">resource/image/close/close_pressed.svg</file>
+        <file alias="information">resource/image/tips/infomation.svg</file>
+        <file alias="question">resource/image/tips/question.svg</file>
+        <file alias="warnning">resource/image/tips/warning.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>cmessagebox/resource/css/msgbox.css</file>
+        <file alias="information">cmessagebox/resource/image/tips/infomation.svg</file>
+        <file alias="question">cmessagebox/resource/image/tips/question.svg</file>
+        <file alias="warnning">cmessagebox/resource/image/tips/warning.png</file>
+        <file>cmessagebox/resource/image/tips/warning.svg</file>
+        <file>image/close/close_hover.png</file>
+        <file>image/close/close_normal.png</file>
+        <file>image/close/close_pressed.png</file>
+        <file>image/min/min_hover.png</file>
+        <file>image/min/min_normal.png</file>
+        <file>image/min/min_pressed.png</file>
+        <file>image/icon/snipaste.png</file>
+        <file>image/avantar.png</file>
+        <file>image/Aventer.png</file>
+        <file>image/css/image.css</file>
+    </qresource>
+</RCC>

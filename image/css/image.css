@@ -1,0 +1,38 @@
+QWidget#QWindowIcon{
+
+}
+
+QWidget#TitleBar>QLabel#logoLabel{
+    border-image: url(:/image/icon/snipaste.png);
+}
+
+QWidget#TitleBar>QLabel#titleLabel{
+    color: rgb(0, 0, 0);
+    font-family: MicrosoftYaHei;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+QWidget#TitleBar>QPushButton#minBtn{
+    border-image: url(:image/min/min_normal.png);
+}
+
+QWidget#TitleBar>QPushButton#minBtn:hover{
+    border-image: url(:image/min/min_hover.png);
+}
+
+QWidget#TitleBar>QPushButton#minBtn:pressed{
+    border-image: url(:image/min/min_pressed.png);
+}
+
+QWidget#TitleBar>QPushButton#closeBtn{
+    border-image: url(:image/close/close_normal.png);
+}
+
+QWidget#TitleBar>QPushButton#closeBtn:hover{
+    border-image: url(:image/close/close_hover.png);
+}
+
+QWidget#TitleBar>QPushButton#closeBtn:pressed{
+    border-image: url(:image/close/close_pressed.png);
+}
