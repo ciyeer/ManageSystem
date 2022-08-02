@@ -9,7 +9,6 @@
 class MouseEvent : public QWidget{
 public:
     explicit MouseEvent(QWidget *parent = nullptr);
-
     void setAreaMovable(const QRect rt);
 
 protected:

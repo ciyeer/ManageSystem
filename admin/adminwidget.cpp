@@ -6,13 +6,12 @@ AdminWidget::AdminWidget(QWidget *parent) :
     ui(new Ui::AdminWidget){
     ui->setupUi(this);
 
-    connection();
+    //connection();
     m_pModel = new QSqlTableModel(this);
     m_pModel->setTable("t_user");
-    m_pModel->select();
-
     ui->user_tableView->setModel(m_pModel);
     m_pModel->select();
+    //ui->user_tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 void AdminWidget::connection(){

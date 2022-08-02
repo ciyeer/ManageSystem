@@ -32,7 +32,6 @@ private:
     TitleBar    *m_pTitleBar;
     StatusBar   *m_pStatusBar;
     QStackedLayout *m_pStackedLayout;
-    //QStackedWidget *m_pStackedWidget;
     Ui::MainWidget *ui;
 };
 

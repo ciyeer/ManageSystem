@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>959</width>
-    <height>584</height>
+    <width>1296</width>
+    <height>814</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,7 +30,7 @@
     <number>0</number>
    </property>
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,15">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="2,1,30">
      <property name="spacing">
       <number>0</number>
      </property>
@@ -202,59 +202,55 @@
         <attribute name="title">
          <string>数据</string>
         </attribute>
-        <widget class="QTableWidget" name="tableWidget_2">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>933</width>
-           <height>461</height>
-          </rect>
-         </property>
-         <attribute name="verticalHeaderVisible">
-          <bool>false</bool>
-         </attribute>
-         <column>
-          <property name="text">
-           <string>ID</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>姓名</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>性别</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>年龄</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>职务</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>联系方式</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>账户密码</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>权限</string>
-          </property>
-         </column>
-        </widget>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0">
+          <widget class="QTableWidget" name="tableWidget_2">
+           <attribute name="verticalHeaderVisible">
+            <bool>false</bool>
+           </attribute>
+           <column>
+            <property name="text">
+             <string>ID</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>姓名</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>性别</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>年龄</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>职务</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>联系方式</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>账户密码</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>权限</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
      </item>
