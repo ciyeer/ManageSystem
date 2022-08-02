@@ -41,7 +41,9 @@ void LoginWidget::slotsOnLoginBtn(){
         QMessageBox::warning(this, "警告", "请输入密码", "确定");
         return;
     }
+
     m_pUserService = new UserService;
+
     if(m_pUserService->login(username, password, role)){
 
         CMessageBox::showCMessageBox(this, "提示", "登录成功", MESSAGE_INFORMATION, BUTTON_OK, true);

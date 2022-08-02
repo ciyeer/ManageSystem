@@ -44,7 +44,7 @@ private:
     Ui::AdminWidget *ui;
 
     AdminAddAccountWidget *m_pAdminAddAccountWidget;
-    //
+
     QSqlTableModel *m_pModel;
 };
 

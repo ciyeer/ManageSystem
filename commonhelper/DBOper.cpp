@@ -76,7 +76,6 @@ void DBOper::exec(QString sql, QVariantList params, int *lastInseredId){
             if(lastInseredId){
                 *lastInseredId = squery.lastInsertId().toInt();
             }
-            //return true;
         }
         else{
             QSqlError error = squery.lastError();
