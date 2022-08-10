@@ -8,7 +8,6 @@
 class UserService : public QObject{
     Q_OBJECT
 public:
-    UserService();
 
     bool login(QString username, QString password, int role);
 

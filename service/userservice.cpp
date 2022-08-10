@@ -1,8 +1,6 @@
 #include "userservice.h"
 #include <QDebug>
 
-UserService::UserService(){}
-
 bool UserService::login(QString username, QString password, int role){
 
     QString sql = "select * from t_user where user_account = ? and user_password = ? and user_role = ?";
