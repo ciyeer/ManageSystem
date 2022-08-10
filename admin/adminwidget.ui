@@ -97,25 +97,6 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="clearBtn">
-         <property name="minimumSize">
-          <size>
-           <width>130</width>
-           <height>45</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>130</width>
-           <height>45</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>清空信息</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QPushButton" name="deleteuserbtn">
          <property name="minimumSize">
           <size>
@@ -131,6 +112,25 @@
          </property>
          <property name="text">
           <string>删除用户</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="flushBtn">
+         <property name="minimumSize">
+          <size>
+           <width>130</width>
+           <height>45</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>130</width>
+           <height>45</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>刷新信息</string>
          </property>
         </widget>
        </item>

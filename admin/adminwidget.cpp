@@ -24,7 +24,7 @@ void AdminWidget::connection(){
             this, &AdminWidget::slotModifyUserInfo);
     connect(ui->serachuser, &QPushButton::clicked,
             this, &AdminWidget::slotQueryUser);
-    connect(ui->clearBtn, &QPushButton::clicked,
+    connect(ui->flushBtn, &QPushButton::clicked,
             this, &AdminWidget::slotClearUserInfo);
     connect(ui->exitBtn, &QPushButton::clicked,
             this, &AdminWidget::slotReturnLoginWidget);
