@@ -34,6 +34,7 @@ SOURCES += \
         cmessagebox/cmessagebox.cpp \
         commonhelper/DBOper.cpp \
         commonhelper/ExportExcel.cpp \
+        delegate/checkboxdelegate.cpp \
         loginwidget.cpp \
         main.cpp \
         mainwidget.cpp \
@@ -58,6 +59,7 @@ HEADERS += \
         commonhelper/ExportExcel.h \
         commonhelper/commonhelper.h \
         commonhelper/connection.h \
+        delegate/checkboxdelegate.h \
         loginwidget.h \
         mainwidget.h \
         mouseevent.h \
