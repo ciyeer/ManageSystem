@@ -9,8 +9,7 @@
 /****************************************************
  * CheckBoxDelegate
  ****************************************************/
-static QRect CheckBoxRect(const QStyleOptionViewItem &viewItemStyleOptions)/*const*/
-{
+static QRect CheckBoxRect(const QStyleOptionViewItem &viewItemStyleOptions)/*const*/{
     //绘制按钮所需要的参数
     QStyleOptionButton checkBoxStyleOption;
     //按照给定的风格参数 返回元素子区域
@@ -22,20 +21,14 @@ static QRect CheckBoxRect(const QStyleOptionViewItem &viewItemStyleOptions)/*con
     return QRect(checkBoxPoint, checkBoxRect.size());
 }
 
-CheckBoxDelegate::CheckBoxDelegate(QObject *parent):
-    QStyledItemDelegate(parent)
-{
+CheckBoxDelegate::CheckBoxDelegate(QObject *parent):QStyledItemDelegate(parent){}
 
-}
-
-void CheckBoxDelegate::setColumn(int col)
-{
+void CheckBoxDelegate::setColumn(int col){
     column = col;
 }
 
 // 绘制复选框
-void CheckBoxDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option,const QModelIndex& index)const
-{
+void CheckBoxDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option,const QModelIndex& index)const{
     bool checked = index.model()->data(index, Qt::DisplayRole).toBool();
 
     if(index.column() == column){
