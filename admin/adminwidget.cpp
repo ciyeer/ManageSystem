@@ -6,7 +6,7 @@ AdminWidget::AdminWidget(QWidget *parent) :
     ui(new Ui::AdminWidget){
     ui->setupUi(this);
 
-    connection();
+    // connection();
     m_pModel = new QSqlTableModel(this);
     m_pModel->setTable("t_user");
     ui->user_tableView->setModel(m_pModel);
@@ -24,7 +24,7 @@ void AdminWidget::connection(){
             this, &AdminWidget::slotModifyUserInfo);
     connect(ui->serachuser, &QPushButton::clicked,
             this, &AdminWidget::slotQueryUser);
-    connect(ui->clearBtn, &QPushButton::clicked,
+    connect(ui->flushBtn, &QPushButton::clicked,
             this, &AdminWidget::slotClearUserInfo);
     connect(ui->exitBtn, &QPushButton::clicked,
             this, &AdminWidget::slotReturnLoginWidget);
