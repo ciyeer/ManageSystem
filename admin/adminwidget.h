@@ -21,6 +21,8 @@ public:
     explicit AdminWidget(QWidget *parent = nullptr);
     ~AdminWidget();
 
+    void setUpTableView();
+
     void connection();
 
 signals:
