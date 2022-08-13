@@ -97,7 +97,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="flushBtn">
+        <widget class="QPushButton" name="saveBtn">
          <property name="minimumSize">
           <size>
            <width>130</width>
@@ -111,7 +111,7 @@
           </size>
          </property>
          <property name="text">
-          <string>刷新信息</string>
+          <string>  保存信息</string>
          </property>
         </widget>
        </item>
