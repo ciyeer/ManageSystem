@@ -20,13 +20,11 @@ void UserWidget::slotReturnLoginWidget(){
 }
 
 void UserWidget::slotModifyUserInfo(){
-    ModifyInfoDialog modifyDlg;
-    modifyDlg.exec();
+
 }
 
 void UserWidget::slotQueryUserInfo(){
-    QueryInfoDialog queryDlg;
-    queryDlg.exec();
+
 }
 
 UserWidget::~UserWidget(){

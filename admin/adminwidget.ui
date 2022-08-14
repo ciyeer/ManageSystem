@@ -154,7 +154,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit">
+        <widget class="QLineEdit" name="queryLineEdit">
          <property name="minimumSize">
           <size>
            <width>360</width>
@@ -166,6 +166,17 @@
            <width>350</width>
            <height>45</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Arial</family>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>  查询用户名</string>
          </property>
         </widget>
        </item>

@@ -27,10 +27,6 @@ CONFIG += c++11
 SOURCES += \
         admin/adduserinfodialog.cpp \
         admin/adminwidget.cpp \
-        admin/clearuserinfodialog.cpp \
-        admin/deleteuserinfodialog.cpp \
-        admin/modifyuserinfodialog.cpp \
-        admin/queryuserinfodialog.cpp \
         cmessagebox/cmessagebox.cpp \
         commonhelper/DBOper.cpp \
         commonhelper/ExportExcel.cpp \
@@ -43,17 +39,11 @@ SOURCES += \
         service/userservice.cpp \
         statusbar.cpp \
         titlebar.cpp \
-        user/modifyinfodialog.cpp \
-        user/queryinfodialog.cpp \
         user/userwidget.cpp
 
 HEADERS += \
         admin/adduserinfodialog.h \
         admin/adminwidget.h \
-        admin/clearuserinfodialog.h \
-        admin/deleteuserinfodialog.h \
-        admin/modifyuserinfodialog.h \
-        admin/queryuserinfodialog.h \
         cmessagebox/cmessagebox.h \
         commonhelper/DBOper.h \
         commonhelper/ExportExcel.h \
@@ -68,25 +58,16 @@ HEADERS += \
         service/userservice.h \
         statusbar.h \
         titlebar.h \
-        user/modifyinfodialog.h \
-        user/queryinfodialog.h \
         user/userwidget.h
 
 FORMS += \
-        admin/adduserinfodialog.ui \
         admin/adminaddaccountwidget.ui \
         admin/adminwidget.ui \
-        admin/clearuserinfodialog.ui \
-        admin/deleteuserinfodialog.ui \
-        admin/modifyuserinfodialog.ui \
-        admin/queryuserinfodialog.ui \
         cmessagebox/cmessagebox.ui \
         loginwidget.ui \
         mainwidget.ui \
         statusbar.ui \
         titlebar.ui \
-        user/modifyinfodialog.ui \
-        user/queryinfodialog.ui \
         user/userwidget.ui
 
 DESTDIR+= $${PWD}/Bin

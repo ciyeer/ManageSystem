@@ -2,8 +2,6 @@
 #define USERWIDGET_H
 
 #include <QWidget>
-#include "modifyinfodialog.h"
-#include "queryinfodialog.h"
 
 namespace Ui {
 class UserWidget;
