@@ -54,7 +54,7 @@
           </size>
          </property>
          <property name="text">
-          <string> 添加用户</string>
+          <string>添加用户</string>
          </property>
         </widget>
        </item>
@@ -111,7 +111,7 @@
           </size>
          </property>
          <property name="text">
-          <string>  保存信息</string>
+          <string>保存信息</string>
          </property>
         </widget>
        </item>

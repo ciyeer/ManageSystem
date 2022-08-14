@@ -70,18 +70,6 @@ void AdminWidget::setUpTableView(){
 
 // QTableView修改一行的保存操作
 void AdminWidget::slotFlushUserInfo(){
-#if 0
-    QSqlTableModel *pMode = dynamic_cast<QSqlTableModel *>(ui->user_tableView->model());
-    pMode->database().transaction();        // 开始事务操作
-    if (pMode->submitAll()){                // 提交所有被修改的数据到数据库中
-        pMode->database().commit();         // 提交成功，事务将真正修改数据库数据
-    } else {
-        pMode->database().rollback();       // 提交失败，事务回滚
-        QMessageBox::warning(this, tr("tableModel"),tr("数据库错误: %1").arg(pMode->lastError().text()));
-    }
-    pMode->revertAll(); // 撤销修改
-#endif
-
     m_pModel->database().transaction();        // 开始事务操作
     if (m_pModel->submitAll()){                // 提交所有被修改的数据到数据库中
         m_pModel->database().commit();         // 提交成功，事务将真正修改数据库数据
@@ -94,34 +82,6 @@ void AdminWidget::slotFlushUserInfo(){
 
 // QTableView新增一行的操作
 void AdminWidget::slotAddUser(){
-#if 0
-    if(!m_bModifyFlag)
-        return;
-    QSqlTableModel *pMode = dynamic_cast<QSqlTableModel *>(ui->user_tableView->model());
-    QSqlRecord record = pMode->record();
-    pMode->setRecord(pMode->rowCount(), record);
-    // 将表格的编辑模式打开
-    ui->user_tableView->setEditTriggers(QAbstractItemView::DoubleClicked);
-    int number;
-    // 从1开始遍历，遇到相同的，自增再遍历，直到没有相同的作为number插入
-    // 防止唯一主键重复导致提交失败，因为提交失败tableview还是会更新修改后的（视图）
-    for(number = 1; ; number++){
-        bool bFlag = false;
-        for(int index = 0; index < pMode->rowCount(); index++) {
-            if(pMode->index(index, 0).data().toInt() == number) {
-                bFlag = true;
-                break;
-            }
-        }
-        if(!bFlag) {
-            break;
-        }
-    }
-
-    pMode->insertRecord(pMode->rowCount(), record);
-    // 每次手动提交，都会重新刷新tableView，保持mode和tableView一致
-    pMode->submitAll();
-#endif
     if(!m_bModifyFlag)
         return;
 
@@ -152,20 +112,6 @@ void AdminWidget::slotAddUser(){
 
 // 删除用户
 void AdminWidget::slotDeleteUser(){
-#if 0
-    if(!m_bModifyFlag)
-        return;
-    //设置表格的单元为只读属性，即不能编辑
-    ui->user_tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    //如果你用在QTableView中使用右键菜单，需启用该属性
-    ui->user_tableView->setContextMenuPolicy(Qt::CustomContextMenu);
-    QSqlTableModel *pMode = dynamic_cast<QSqlTableModel *>(ui->user_tableView->model());
-    // 当QSqlTableModel::EditStrategy 选择 非QSqlTableModel::OnManualSubmit 时,
-    // 每次删除都可删除掉model，但是tableview那一列为空，一直在，只好设置为 QSqlTableModel::OnManualSubmit
-    pMode->removeRow(ui->user_tableView->currentIndex().row());
-    // 每次手动提交，都会重新刷新tableView，保持mode和tableView一致
-    pMode->submitAll();
-#endif
     if(!m_bModifyFlag)
         return;
     //设置表格的单元为只读属性，即不能编辑
@@ -180,13 +126,6 @@ void AdminWidget::slotDeleteUser(){
 }
 
 void AdminWidget::sortByColumn(int col){
-#if 0
-    QSqlTableModel *pMode = dynamic_cast<QSqlTableModel *>(ui->user_tableView->model());
-    bool ascending = (ui->user_tableView->horizontalHeader()->sortIndicatorSection()==col
-                      && ui->user_tableView->horizontalHeader()->sortIndicatorOrder()==Qt::DescendingOrder);
-    Qt::SortOrder order = ascending ? Qt::AscendingOrder : Qt::DescendingOrder;
-    pMode->sort(col, order);
-#endif
     bool ascending = (ui->user_tableView->horizontalHeader()->sortIndicatorSection()==col
                       && ui->user_tableView->horizontalHeader()->sortIndicatorOrder()==Qt::DescendingOrder);
     Qt::SortOrder order = ascending ? Qt::AscendingOrder : Qt::DescendingOrder;
@@ -225,72 +164,15 @@ void AdminWidget::slotDeleteContextMenu(const QPoint pos){
 }
 
 void AdminWidget::slotQueryUser(){
-//    QSqlTableModel *pMode = dynamic_cast<QSqlTableModel *>(ui->user_tableView->model());
-//    pMode->setFilter(ui->queryLineEdit->text());
     if(ui->queryLineEdit->text().isEmpty()){
-        //m_pModel->setTable("t_user");
+        m_pModel->setFilter(ui->queryLineEdit->text());
         m_pModel->select();
         return;
     }
 
-    // m_pModel->setFilter(QString("user_account = '%1'").arg(ui->queryLineEdit->text()));
     m_pModel->setFilter(QString("user_account like '%%1%'").arg(ui->queryLineEdit->text()));
     m_pModel->select();
 }
-#if 0
-void serch(){
-    QString name = ui->lineEdit_7->text();
-        QString author=ui->lineEdit_8->text();
-        QSqlQuery query;//复习：一个操作数据库的工具
-        int count=0,count2=0;
-        //判断输入情况，是否为空
-        if(name.length()!=0&&author.length()==0){
-        //采用的模糊查询，只要结果包含输入，就会被查出来
-            model->setFilter(QString("name like '%%1%'").arg(name));//一个舍去了“select”关键词的筛选函数
-            model->select();
-            QString sql=QString("select * from books where name like '%%1%'").arg(name);//复习：写出SQL语句
-            query.exec(sql);//复习：执行这条SQL语句
-            while(query.next())//复习：循环查询结果集，进行一系列操作
-            {
-                count++;//对查询结果计数
-                if(query.value(7).toString()=="未借出"){
-                    count2++;//对在馆数量计数
-                }
-
-            }
-            //这里要进行类型的转换，把int转化为QString，因为label\lineEdit这种都默认显示QString类型的数据
-            QString str_count=QString::number(count);
-            QString str_count2=QString::number(count2);
-            ui->label_4->setText(str_count);
-            ui->label_5->setText(str_count2);
-        }else if(author.length()!=0&&name.length()==0){
-        //以下同理
-            model->setFilter(QString("author like '%%2%'").arg(author));
-            model->select();
-            QString str_count=QString::number(count);
-            QString str_count2=QString::number(count2);
-            ui->label_4->setText(str_count);
-            ui->label_5->setText(str_count2);
-        }else if(name.length()!=0&&author.length()!=0){
-            model->setFilter(QString("name like '%%1%' && author like '%%2%'").arg(name).arg(author));
-            model->select();
-            QString sql=QString("select * from books where name like '%%1%'&& author like '%%2%'").arg(name).arg(author);
-            query.exec(sql);
-            while(query.next())
-            {
-                count++;
-                if(query.value(7).toString()=="未借出"){
-                    count2++;
-                }
-
-            }
-            QString str_count=QString::number(count);
-            QString str_count2=QString::number(count2);
-            ui->label_4->setText(str_count);
-            ui->label_5->setText(str_count2);
-        }
-}
-#endif
 
 void AdminWidget::slotModifyUserInfo(){
     m_bModifyFlag = true;
