@@ -3,10 +3,10 @@
 #include "commonhelper/connection.h"
 
 int main(int argc, char *argv[]){
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     if(!creatConnection()){
          return 1;
-     }
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+     }  
     QApplication a(argc, argv);
     MainWidget w;
     w.show();

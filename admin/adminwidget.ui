@@ -135,7 +135,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="serachuser">
+        <widget class="QPushButton" name="importBtn">
          <property name="minimumSize">
           <size>
            <width>130</width>
@@ -149,7 +149,7 @@
           </size>
          </property>
          <property name="text">
-          <string>查找用户</string>
+          <string>导入表格</string>
          </property>
         </widget>
        </item>

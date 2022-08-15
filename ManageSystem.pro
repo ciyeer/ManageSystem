@@ -61,7 +61,6 @@ HEADERS += \
         user/userwidget.h
 
 FORMS += \
-        admin/adminaddaccountwidget.ui \
         admin/adminwidget.ui \
         cmessagebox/cmessagebox.ui \
         loginwidget.ui \

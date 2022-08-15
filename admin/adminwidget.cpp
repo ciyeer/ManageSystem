@@ -23,13 +23,14 @@ void AdminWidget::connection(){
             this, &AdminWidget::slotDeleteUser);
     connect(ui->modifyBtn, &QPushButton::clicked,
             this, &AdminWidget::slotModifyUserInfo);
-    connect(ui->serachuser, &QPushButton::clicked,
+    connect(ui->queryLineEdit, &QLineEdit::textEdited,
             this, &AdminWidget::slotQueryUser);
     connect(ui->saveBtn, &QPushButton::clicked,
             this, &AdminWidget::slotSaveUserInfo);
     connect(ui->exitBtn, &QPushButton::clicked,
             this, &AdminWidget::slotReturnLoginWidget);
-    connect(ui->user_tableView, &QTableView::customContextMenuRequested, this, &AdminWidget::slotDeleteContextMenu);
+    connect(ui->user_tableView, &QTableView::customContextMenuRequested,
+            this, &AdminWidget::slotDeleteContextMenu);
 }
 
 void AdminWidget::setTableViewContextMenu(){
