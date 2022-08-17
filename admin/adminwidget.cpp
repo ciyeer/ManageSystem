@@ -14,6 +14,8 @@ AdminWidget::AdminWidget(QWidget *parent) :
     connection();
     setUpTableView();
     setTableViewContextMenu();
+    connect(ui->user_tableView, &QTableView::doubleClicked,
+            this, &AdminWidget::slotShowDetailData);
 }
 
 void AdminWidget::connection(){
@@ -168,15 +170,15 @@ void AdminWidget::slotDeleteContextMenu(const QPoint pos){
 
 void AdminWidget::slotShowDetailData(const QModelIndex &index){
     //通过Model获取一行
-//    QModelIndex index1 = ui->user_tableView->currentIndex();
+    QModelIndex index1 = ui->user_tableView->currentIndex();
 
-//    if (index1.isValid()){
-//        //也可以通过自定义的Model中获取
-//        QSqlRecord record = model->record(index.row());
-//        QString value = record.value("xxxxxxx").toString();
-//        .................
-//    }
+    if (index1.isValid()){
+        // 也可以通过自定义的Model中获取
+        // QSqlRecord record = model->record(index.row());
+        // QString value = record.value("xxxxxxx").toString();
+    }
 
+    ui->tabWidget->setCurrentIndex(1);
 }
 
 void AdminWidget::slotQueryUser(){

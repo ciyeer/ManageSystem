@@ -3,10 +3,11 @@
 #include "commonhelper/commonhelper.h"
 #include <QIcon>
 
-MainWidget::MainWidget(MouseEvent *parent) :
-    MouseEvent(parent),
+MainWidget::MainWidget(QWidget *parent) :
+    QWidget(parent),
     ui(new Ui::MainWidget){
     ui->setupUi(this);
+    m_bisPressed = false;
     setStyle(":/image/css/image.css");
     setWindowFlag(Qt::FramelessWindowHint);
     setWindowIcon(QIcon(":/image/icon/snipaste.png"));
@@ -46,6 +47,32 @@ void MainWidget::setStyle(const QString &strPath){
     setStyleSheet(styleSheet);
     file.close();
 }
+
+void MainWidget::mouseMoveEvent(QMouseEvent *event){
+    if(m_bisPressed){
+        // 通过事件event->globalPos()知道鼠标坐标
+        // 鼠标坐标减去鼠标相对于窗口位置，就是窗口在整个屏幕的坐标
+        move(event->globalPos() - m_point); // 移动
+    }
+}
+
+void MainWidget::mousePressEvent(QMouseEvent *event){
+    // 鼠标左键
+    if(event->button() == Qt::LeftButton){
+        // event->globalPos() 鼠标按下时，鼠标相对于整个屏幕位置
+        // this->pos() 鼠标按下时，窗口相对于整个屏幕位置
+        // event->globalPos() - this->pos() 鼠标相对于窗口的位置
+        m_point = event->globalPos() - this->pos();
+        m_bisPressed = true;
+        //m_bisPressed = m_areaMovable.contains(m_point);
+    }
+}
+
+void MainWidget::mouseReleaseEvent(QMouseEvent *event){
+    Q_UNUSED(event)
+    m_bisPressed = false;
+}
+
 
 MainWidget::~MainWidget(){
     delete ui;
