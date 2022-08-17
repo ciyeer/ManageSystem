@@ -3,7 +3,6 @@
 
 #include <QWidget>
 #include <QStackedLayout>
-#include <QStackedWidget>
 #include "admin/adminwidget.h"
 #include "user/userwidget.h"
 #include "loginwidget.h"

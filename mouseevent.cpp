@@ -1,9 +1,11 @@
 #include "mouseevent.h"
+#include <QDebug>
 
 MouseEvent::MouseEvent(QWidget *parent)
     : QWidget(parent){
     m_bisPressed = false;
-    m_areaMovable = geometry();
+    //m_areaMovable = geometry();
+    //qDebug() << m_areaMovable;
 }
 
 void MouseEvent::mouseMoveEvent(QMouseEvent *event){
@@ -21,7 +23,8 @@ void MouseEvent::mousePressEvent(QMouseEvent *event){
         // this->pos() 鼠标按下时，窗口相对于整个屏幕位置
         // event->globalPos() - this->pos() 鼠标相对于窗口的位置
         m_point = event->globalPos() - this->pos();
-        m_bisPressed = m_areaMovable.contains(m_point);
+        m_bisPressed = true;
+        //m_bisPressed = m_areaMovable.contains(m_point);
     }
 }
 
@@ -32,7 +35,7 @@ void MouseEvent::mouseReleaseEvent(QMouseEvent *event){
 
 //设置鼠标按下的区域
 void MouseEvent::setAreaMovable(const QRect rt){
-    if(m_areaMovable != rt){
-        m_areaMovable = rt;
-    }
+//    if(m_areaMovable != rt){
+//        m_areaMovable = rt;
+//    }
 }

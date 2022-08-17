@@ -19,7 +19,7 @@ protected:
 private:
     bool m_bisPressed;
     QPoint m_point;     // 鼠标点击的坐标
-    QRect m_areaMovable;
+    //QRect m_areaMovable;
 };
 
 #endif // MOUSEEVENT_H

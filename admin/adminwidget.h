@@ -49,6 +49,9 @@ public slots:
     // 删除一行
     void slotDeleteContextMenu(const QPoint pos);
 
+    // QTableView双击事件,展示员工详细数据
+    void slotShowDetailData(const QModelIndex &index);
+
 private:
     Ui::AdminWidget *ui;
 
