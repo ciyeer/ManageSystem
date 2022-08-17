@@ -157,6 +157,7 @@ void AdminWidget::slotDeleteContextMenu(const QPoint pos){
             //            // 选中多行时，弹出菜单2
             //            num1 = rowMap.firstKey();   // 要操作的数据起始行
             //            num2 = rowMap.count();      // 要操作的数据的行数
+            //            tableviewMenu->exec(QCursor::pos());
         }
     }
     else{    //模型中没有数据时，即模型索引获取不到，出现菜单一
@@ -166,6 +167,18 @@ void AdminWidget::slotDeleteContextMenu(const QPoint pos){
 }
 
 void AdminWidget::slotShowDetailData(const QModelIndex &index){
+    //通过Model获取一行
+//    QModelIndex index1 = ui->user_tableView->currentIndex();
+
+//    if (index1.isValid()){
+//        //也可以通过自定义的Model中获取
+//        QSqlRecord record = model->record(index.row());
+//        QString value = record.value("xxxxxxx").toString();
+//        .................
+//    }
+
+}
+
 void AdminWidget::slotQueryUser(){
     if(ui->queryLineEdit->text().isEmpty()){
         m_pModel->setFilter(ui->queryLineEdit->text());
