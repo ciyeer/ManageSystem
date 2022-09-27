@@ -5,10 +5,6 @@
 #include "service/userservice.h"
 #include "service/accountinfo.h"
 
-namespace Ui {
-class AddUserInfoDialog;
-}
-
 class AddUserInfoDialog : public QDialog{
     Q_OBJECT
 
@@ -21,7 +17,6 @@ public slots:
     void slotCancel();       // 取消按钮
 
 private:
-    Ui::AddUserInfoDialog *ui;
     QSqlDatabase m_db;
 };
 
